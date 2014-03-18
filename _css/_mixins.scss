@@ -1,9 +1,38 @@
+// Utilities
+// -------------------------
+
 // http://www.stubbornella.org/content/2009/07/23/overflow-a-secret-benefit/
 @mixin clearfix() {
 	overflow:hidden;
 	_overflow:visible;
 	zoom:1;
 }
+
+// User select
+// For selecting text on the page
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select; // IE10+
+          user-select: $select;
+}
+
+// box-shadow helper
+@mixin box-shadow($box-shadow...) {
+	-webkit-box-shadow: $box-shadow; // iOS <4.3 & Android <4.1
+			box-shadow: $box-shadow;
+}
+
+// opacity helper
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: #{alpha(opacity=$opacity-ie)};
+}
+
+// Grid System
+// -----------
 
 // Centered container element
 @mixin make-container {
@@ -121,4 +150,50 @@
 // Generate non-responsive grid columns
 @mixin make-grid() {
 	@include calc-column-width();
+}
+
+
+// Button sizes
+// ------------
+@mixin button-size($padding-v, $padding-h, $font-size, $line-height, $border-radius) {
+	padding: $padding-v $padding-h;
+	font-size: $font-size;
+	line-height: $line-height;
+	border-radius: $border-radius;
+}
+
+// Button variants
+// -----------------------------
+// Give button default style, :hover, :focus, :active, .disabled style.
+@mixin button-variant($color, $background, $border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		color: $color;
+		background-color: darken($background, 8%);
+			border-color: darken($background, 12%);
+	}
+
+	&:active,
+	&.active {
+		background-image: none;
+	}
+
+	&.disabled,
+	&[disabled] {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background-color: $background;
+				border-color: $border;
+		}
+	}
+
 }

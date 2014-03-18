@@ -20,6 +20,7 @@ module.exports = function(grunt) {
         files: {
           "css/grid.css": "_css/grid.scss",
           "css/grid-r.css": "_css/grid-r.scss",
+          "css/btn.css": "_css/btn.scss",
           "css/style.css": "_css/style.scss"
         }
       }

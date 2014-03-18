@@ -1,0 +1,91 @@
+@import "_variables", "_mixins";
+
+// Buttons
+// -------------------------------------------------
+// Btn core styles
+// -------------------------------------------------
+.btn {
+  display: inline-block;
+
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: no-wrap;
+  vertical-align: middle;
+
+  cursor: pointer;
+
+  background-image: none; // Reset
+
+  border: 1px solid transparent; // border basic
+
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+  @include user-select(none);
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0; // reset outline
+    background-image: none; // reset background-image
+    @include box-shadow($btn-active-box-shadow);
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    @include opacity(0.8);
+    @include box-shadow(none);
+  }
+}
+
+// Buttons family
+// ----------------------------
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+// Success appears as green
+.btn-success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+// Warning appears as orange
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+// Button sizes
+// ---------------------------
+.btn-lg {
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+}
+
+.btn-sm {
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+.btn-xs {
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+// Block button
+// --------------------------------
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
