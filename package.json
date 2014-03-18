@@ -1,0 +1,9 @@
+{
+  "name": "grid_demo",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-watch": "~0.6.0"
+  }
+}

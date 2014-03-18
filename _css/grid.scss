@@ -1,0 +1,21 @@
+// Non-responsive grid system
+@import "_variables", "_mixins";
+
+// Centered container, without defined width
+// for each media query
+.container-fluid {
+	@include make-container();
+}
+
+// Row
+// 
+// Rows contain and clear the floats of columns
+.row {
+	@include make-row();
+}
+
+// Columns
+// 
+// Basic unit in grid system
+@include make-column();
+@include make-grid();

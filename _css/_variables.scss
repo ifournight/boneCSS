@@ -1,0 +1,9 @@
+// == Media query breakpoints
+$screen-xs-width: 480px;
+$screen-sm-width: 768px;
+$screen-md-width: 960px;
+$screen-lg-width: 1200px;
+
+// == Grid system
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;

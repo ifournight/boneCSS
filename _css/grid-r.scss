@@ -1,0 +1,29 @@
+// Responsive grid system
+@import "_variables", "_mixins";
+
+// Centered container element
+.container {
+	@include make-container();
+}
+
+// Row
+// 
+// Rows contain and clear the floats of columns
+.row {
+	@include make-row();
+}
+
+// Columns
+// 
+// Basic unit in grid system
+@include make-r-column();
+@include make-r-grid(xs);
+@media (min-width: $screen-sm-width) {
+	@include make-r-grid(sm);
+}
+@media (min-width: $screen-md-width) {
+	@include make-r-grid(md);
+}
+@media (min-width: $screen-lg-width) {
+	@include make-r-grid(lg);
+}
