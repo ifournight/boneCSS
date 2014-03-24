@@ -3,9 +3,11 @@
 
 // http://www.stubbornella.org/content/2009/07/23/overflow-a-secret-benefit/
 @mixin clearfix() {
-	overflow:hidden;
-	_overflow:visible;
-	zoom:1;
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
 }
 
 // User select

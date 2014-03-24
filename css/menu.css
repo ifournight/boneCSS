@@ -446,10 +446,10 @@ body {
   cursor: not-allowed;
 }
 
-.menu-horizontal {
-  overflow: hidden;
-  _overflow: visible;
-  zoom: 1;
+.menu-horizontal:after {
+  content: " ";
+  display: table;
+  clear: both;
 }
 .menu-horizontal > li {
   float: left;
