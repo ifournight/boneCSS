@@ -1,0 +1,37 @@
+@import "normalize", "_variables", "_mixins", "base", "menu-core.scss";
+
+
+// Give menu item a padding, color, background color in
+// normal, hover/ focus, disabled state
+.menu {
+	> li {
+		> a {
+			padding: $nav-link-padding;
+			color: $text-color;
+
+			&:hover,
+			&:focus {
+				background-color: $nav-link-hover-bg;
+			}
+		}
+
+		&.disabled > a {
+			color: $nav-disabled-link-color;
+
+			&:hover,
+			&:focus {
+				color: $nav-disabled-link-hover-color;
+				background-color: transparent;
+
+				cursor: not-allowed;
+			}
+		}
+	}
+}
+
+// Horizontal Menu
+.menu-horizontal {
+	> li {
+		float: left;
+	}
+}

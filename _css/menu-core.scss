@@ -1,0 +1,26 @@
+// Menu-core
+// -------------------------------
+// Give menu a core style.
+
+.menu {
+	margin-left: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+
+	list-style: none;
+	
+	> li {
+		display: block;
+		position: relative;
+		> a {
+			display: block;
+			position: relative;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+}
