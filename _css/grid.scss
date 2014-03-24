@@ -1,5 +1,5 @@
 // Non-responsive grid system
-@import "_variables", "_mixins";
+@import "normalize", "_variables", "_mixins", "base";
 
 // Centered container, without defined width
 // for each media query

@@ -1,0 +1,192 @@
+@import "normalize", "_variables", "_mixins", "base";
+// Buttons
+// ----------------------------
+
+// Non-controls base style
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	min-width: 0;
+}
+
+label {
+	display: inline-block;
+}
+
+.form label {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+// Common form controls
+// Apply '.form-control' to the following form controls, instead of apply style
+// to a bunch of elements:
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	height: $input-height-base; // Make a default height, equal to (line-height-base + padding-vertial-base + border)
+	padding: $padding-base-vertical $padding-base-horizontal;
+	vertical-align: middle;
+
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+
+	background-image: none;
+
+	border: 1px solid $input-border;
+	border-radius: $input-border-radius;
+	@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+	@include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+
+	@include form-control-focus();
+
+	@include placeholder($input-color-placeholder);
+
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+		background-color: $input-bg-disabled;
+		opacity: 1;
+	}
+}
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group {
+	display: block;
+	margin-bottom: 15px;
+}
+
+// Checkboxs and radios
+// wrap a label and a radio/ checkbox
+.radio,
+.checkbox {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	min-height: $line-height-computed;
+	
+	cursor: pointer;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+	margin-top: -5px; // space out the consecutive inline controls
+}
+
+.radio-inline,
+.checkbox-inline, {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	vertical-align: middle;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+	margin-left: 10px;
+}
+
+.radio input[type="radio"],
+.checkbox input[type="checkbox"],
+.radio-inline input[type="radio"],
+.checkbox-inline input[type="checkbox"] {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"],
+.radio,
+.radio-inline,
+.checkbox,
+.checkbox-inline {
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+	}
+}
+
+// Inline form
+// ---------------------------
+.form-inline {
+
+	// form-inline will fallback to basic form when width under $screen-sm-min
+	@media (min-width: $screen-sm-width) {
+		.form-group {
+			display: inline-block;
+			margin-bottom: 0;
+			vertical-align: middle;
+		}
+
+		.form-control {
+			display: inline-block;
+			width: auto;
+			vertical-align: middle;
+		}
+
+		.radio,
+		.checkbox {
+			display: inline-block;
+			margin-top: 0;
+			margin-bottom: 0;
+
+			vertical-align: middle;
+		}
+	}
+
+}
+
+// Horizontal form
+// -----------------------------------
+// Use grid system to align label and .form-control
+.form-horizontal {
+
+	// vertical alignment labels, radios, checkboxes
+	.control-label,
+	.radio,
+	.checkbox,
+	.radio-inline,
+	.checkbox-inline {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: ($padding-base-vertical + 1);
+	}
+
+	// make form-group behave as a row in grid system
+	.form-group {
+		@include make-row();
+	}	
+
+	// When form not collapsed, right align the label
+	@media (min-width: $screen-sm-width) {
+		.control-label {
+			text-align: right;
+		}
+	}
+}

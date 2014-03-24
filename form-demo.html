@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>form-demo</title>
+		<link rel="stylesheet" href="css/grid.css">
+		<link rel="stylesheet" href="css/grid-r.css">
+		<link rel="stylesheet" href="css/btn.css">
+		<link rel="stylesheet" href="css/form.css">
+	</head>
+	<body>
+		<div class="container">
+			<h2>Standard Form</h2>
+			<p>Form elements receive some default style, add input, select, textarea with <code>.form-control</code> to give default basic style, use <code>.form-group</code> to group logical unit. <br>
+			<code>.form-control</code> have width 100%, <code>.form-group</code> have a default margin.</p>
+			<form class="form" role="form">
+				<fieldset>
+					<div class="form-group">
+						<label for="emailInput1">Email Address</label>
+						<input type="email" name="emailInput1" placeholder="Enter email" class="form-control" id="emailInput1">
+					</div>
+					<div class="form-group">
+						<label for="passwordInput1">Password</label>
+						<input type="password" name="passwordInput1" placeholder="Password" class="form-control" id="passwordInput1">
+					</div>
+					<div class="checkbox">
+						<label><input type="checkbox">Remember me</input></label>
+					</div>
+					<div class="form-group">
+						<input type="file" name="fileInput1" id="fileInput1">
+					</div>
+					<div class="form-group">
+						<label for="genderSelect1">Select your sex</label>
+						<select name="genderSelect" id="genderSelect1" class="form-control">
+							<option value="0">Male</option>
+							<option value="1">Female</option>
+						</select>
+					</div>
+					<button class="btn btn-default">Sign in</button>
+				</fieldset>
+			</form>
+			<h2>Inline Form</h2>
+			<p>When form added class <code>.form-inline</code>, all form group will be layouted inline, when screen width under <code>1screen-sm-width</code>, inline form will fallback to standard form</p>
+			<form role="form" class="form form-inline">
+				<fieldset>
+					<div class="form-group">
+						<label for="emailInput1" class="sr-only">Email Address</label>
+						<input type="email" name="emailInput1" placeholder="Enter email" class="form-control" id="emailInput1">
+					</div>
+					<div class="form-group">
+						<label for="passwordInput1" class="sr-only">Password</label>
+						<input type="password" name="passwordInput1" placeholder="Password" class="form-control" id="passwordInput1">
+					</div>
+					<div class="checkbox">
+						<label><input type="checkbox">Remember me</input></label>
+					</div>
+					<button class="btn btn-default">Sign in</button>
+				</fieldset>
+			</form>
+			<h2>Horizontal Form</h2>
+			<p>When form added class <code>.form-horizontal</code>, label and control will aligned horizontally</p>
+			<form class="form form-horizontal">
+				<fieldset>
+					<div class="form-group">
+						<label for="emailInput1" class="col-sm-3 control-label">Email Address</label>
+						<div class="col-sm-9">
+							<input type="email" name="emailInput1" placeholder="Enter email" class="form-control" id="emailInput1">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="passwordInput1" class="col-sm-3 control-label">Password</label>
+						<div class="col-sm-3">
+							<input type="password" name="passwordInput1" placeholder="Password" class="form-control" id="passwordInput1">
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>

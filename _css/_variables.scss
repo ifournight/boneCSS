@@ -14,12 +14,30 @@ $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               #fff !default;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark !default;
+
+//** Global textual link color.
+$link-color:            $brand-primary !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+
 // == Typography
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-base:        $font-family-sans-serif !default;
+
 $font-size-base: 14px !default;
 $font-size-large: ceil(($font-size-base * 1.25)) !default;
 $font-size-small: ceil(($font-size-base * 0.85)) !default;
 
 $line-height-base:        1.428571429 !default;
+$line-height-computed: floor($font-size-base * $line-height-base) !default;
 
 // == Components
 $padding-base-vertical: 6px !default;
@@ -51,6 +69,20 @@ $screen-lg-width: 1200px;
 $grid-columns: 12 !default;
 $grid-gutter-width: 30px !default;
 
+// == Form variables
+$input-bg: #fff !default;
+$input-bg-disabled: $gray-lighter !default;
+
+$input-color: $gray !default;
+
+$input-border: #ccc !default;
+$input-border-radius: $border-radius-base !default;
+$input-border-focus: #66afe9 !default;
+
+$input-color-placeholder: $gray-light !default;
+
+$input-height-base: $line-height-computed + ($padding-base-vertical + 1) * 2;
+
 // == Button variables
 $btn-font-weight: normal !default;
 
@@ -81,3 +113,16 @@ $btn-danger-bg:                  $brand-danger !default;
 $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+$nav-link-padding:                          10px 15px !default;
+$nav-link-hover-bg:                         $gray-lighter !default;
+
+$nav-disabled-link-color:                   $gray-light !default;
+$nav-disabled-link-hover-color:             $gray-light !default;
+
+$nav-open-link-hover-color:                 #fff !default;

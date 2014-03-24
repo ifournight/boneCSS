@@ -1,5 +1,5 @@
 // Responsive grid system
-@import "_variables", "_mixins";
+@import "normalize", "_variables", "_mixins", "base";
 
 // Centered container element
 .container {
