@@ -411,46 +411,81 @@ body {
   border: 0;
 }
 
-.menu {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-left: 0;
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
   list-style: none;
 }
-.menu > li {
+.dropdown-menu > li > a {
   display: block;
-  position: relative;
-}
-.menu > li > a {
-  display: block;
-  position: relative;
   text-decoration: none;
 }
-.menu > li > a:hover, .menu > li > a:focus {
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
 }
 
-.menu > li > a {
-  padding: 10px 15px;
+.dropdown-menu {
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  border: 1px solide rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.dropdown-menu > li > a {
+  padding: 3px 20px;
+  font-weight: normal;
+  line-height: 1.42857;
   color: #333333;
+  white-space: nowrap;
 }
-.menu > li > a:hover, .menu > li > a:focus {
-  background-color: #eeeeee;
-}
-.menu > li.disabled > a {
-  color: #999999;
-}
-.menu > li.disabled > a:hover, .menu > li.disabled > a:focus {
-  color: #999999;
-  background-color: transparent;
-  cursor: not-allowed;
+.open .dropdown-menu {
+  display: block;
 }
 
-.menu-horizontal {
-  overflow: hidden;
-  _overflow: visible;
-  zoom: 1;
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: whitesmoke;
 }
-.menu-horizontal > li {
-  float: left;
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+  color: white;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+  color: #999999;
+}
+
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
 }

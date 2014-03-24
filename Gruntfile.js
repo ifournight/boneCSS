@@ -23,6 +23,8 @@ module.exports = function(grunt) {
           "css/btn.css": "_css/btn.scss",
           "css/form.css": "_css/form.scss",
           "css/menu.css": "_css/menu.scss",
+
+          "css/dropdown-menu.css": "_css/dropdown-menu.scss",
           "css/style.css": "_css/style.scss"
         }
       }
