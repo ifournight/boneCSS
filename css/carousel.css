@@ -411,158 +411,80 @@ body {
   border: 0;
 }
 
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-width: 0;
+.carousel {
+  position: relative;
+  display: block;
 }
 
-label {
-  display: inline-block;
-}
-
-.form label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-control {
+.carousel-inners {
+  position: relative;
   display: block;
   width: 100%;
-  box-sizing: border-box;
-  height: 34px;
-  padding: 6px 12px;
-  vertical-align: middle;
-  font-size: 14px;
-  line-height: 1.42857;
-  background-image: none;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-.form-control:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.form-control::-moz-placeholder {
-  color: #999999;
-  opacity: 1;
-}
-.form-control::-ms-input-placeholder {
-  color: #999999;
-}
-.form-control::-webkit-input-placeholder {
-  color: #999999;
-}
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  cursor: not-allowed;
-  background-color: #eeeeee;
-  opacity: 1;
 }
 
-.form-group {
-  display: block;
-  margin-bottom: 15px;
+.carousel-inners__item {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
 
-.radio,
-.checkbox {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  min-height: 20px;
-  cursor: pointer;
-}
-
-.radio + .radio,
-.checkbox + .checkbox {
-  margin-top: -5px;
-}
-
-.radio-inline,
-.checkbox-inline {
+.carousel-control {
+  position: absolute;
   display: inline-block;
-  margin-top: 0;
-  margin-bottom: 0;
-  vertical-align: middle;
 }
 
-.radio-inline + .radio-inline,
-.checkbox-inline + .checkbox-inline {
-  margin-left: 10px;
+.carousel-indicator {
+  position: absolute;
+  display: inline-block;
 }
 
-.radio input[type="radio"],
-.checkbox input[type="checkbox"],
-.radio-inline input[type="radio"],
-.checkbox-inline input[type="checkbox"] {
-  vertical-align: middle;
-  margin-right: 5px;
+.chanyouji .carousel-inners {
+  height: 430px;
 }
-
-input[type="radio"][disabled], fieldset[disabled] input[type="radio"],
-input[type="checkbox"][disabled], fieldset[disabled]
-input[type="checkbox"],
-.radio[disabled], fieldset[disabled]
-.radio,
-.radio-inline[disabled], fieldset[disabled]
-.radio-inline,
-.checkbox[disabled], fieldset[disabled]
-.checkbox,
-.checkbox-inline[disabled], fieldset[disabled]
-.checkbox-inline {
-  cursor: not-allowed;
+.chanyouji .carousel-inners__item {
+  overflow: hidden;
+  -webkit-transition: left 0.15s linear;
+  transition: left 0.15s linear;
 }
-
-@media (min-width: 768px) {
-  .form-inline .form-group {
-    display: inline-block;
-    margin-bottom: 0;
-    vertical-align: middle;
-  }
-  .form-inline .form-control {
-    display: inline-block;
-    width: auto;
-    vertical-align: middle;
-  }
-  .form-inline .radio,
-  .form-inline .checkbox {
-    display: inline-block;
-    margin-top: 0;
-    margin-bottom: 0;
-    vertical-align: middle;
-  }
+.chanyouji .carousel-inners__item.in {
+  display: block;
+  left: 0;
 }
-
-.form-horizontal .control-label,
-.form-horizontal .radio,
-.form-horizontal .checkbox,
-.form-horizontal .radio-inline,
-.form-horizontal .checkbox-inline {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 7px;
+.chanyouji .carousel-inners__item.left {
+  left: -100%;
+  right: inherit;
 }
-.form-horizontal .form-group {
-  margin-left: -15px;
-  margin-right: -15px;
-  *zoom: 1;
+.chanyouji .carousel-inners__item.right {
+  left: 100%;
+  right: inherit;
 }
-.form-horizontal .form-group:before, .form-horizontal .form-group:after {
-  content: " ";
+.chanyouji .carousel-inners__item__img {
+  position: absolute;
+  width: 1600px;
+  left: 50%;
+  margin-left: -800px;
+}
+.chanyouji .carousel-control {
   display: table;
+  position: absolute;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  vertical-align: middle;
+  z-index: 1000;
+  color: #fff;
+  font-size: 18px;
 }
-.form-horizontal .form-group:after {
-  clear: both;
+.chanyouji .carousel-control.prev {
+  left: 12px;
+  right: inherit;
 }
-@media (min-width: 768px) {
-  .form-horizontal .control-label {
-    text-align: right;
-  }
+.chanyouji .carousel-control.next {
+  left: inherit;
+  right: 12px;
 }

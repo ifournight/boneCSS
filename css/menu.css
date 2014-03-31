@@ -446,9 +446,14 @@ body {
   cursor: not-allowed;
 }
 
-.menu-horizontal:after {
+.menu-horizontal {
+  *zoom: 1;
+}
+.menu-horizontal:before, .menu-horizontal:after {
   content: " ";
   display: table;
+}
+.menu-horizontal:after {
   clear: both;
 }
 .menu-horizontal > li {

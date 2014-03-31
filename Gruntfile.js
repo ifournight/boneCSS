@@ -25,6 +25,7 @@ module.exports = function(grunt) {
           "css/menu.css": "_css/menu.scss",
 
           "css/dropdown-menu.css": "_css/dropdown-menu.scss",
+          "css/carousel.css": "_css/carousel.scss",
           "css/style.css": "_css/style.scss"
         }
       }
@@ -39,6 +40,12 @@ module.exports = function(grunt) {
       sass: {
         files: "_css/*.scss",
         tasks: ["css"],
+        options: {
+          livereload: true
+        }
+      },
+      js: {
+        files: "_js/*.js",
         options: {
           livereload: true
         }
