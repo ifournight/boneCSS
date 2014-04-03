@@ -1,0 +1,208 @@
+///////////////////
+// #Generic.grid //
+///////////////////
+//
+// boneCSS use "float" to achieve the grid system,
+// the implementation learned from Bootstrap grid system(http://getbootstrap.com/css/#grid),
+// but with some minor changes.
+// [1]: Use single direction padding instead of binary direction.
+// [2]: Export both the non-responsive and responsive edtion.
+// [3]: Grid system will export Sass silent class to support extending grid behavior without use grid class selectors:
+//     eg: 
+//     .some-element-want-a-layout-sytle {
+//         @extend %col-6;
+//     }
+//     then this element will have the col-6 style.
+
+////////////////////
+// Variables.grid //
+////////////////////
+
+// Override this variable to custom the column 
+// count that grid-system contains in one row.
+$bone-grid-column-count: 12 !default;
+
+
+
+
+
+// The space between each column.
+$bone-grid-gutter-width: 15px !default;
+
+
+
+
+
+// Media query breakpoints class name,
+// They are only for internal use so have no "bone" prefix.
+$xs-class: xs;
+$sm-class: sm;
+$md-class: md;
+$lg-class: lg;
+
+
+
+
+
+//////////////////
+// Helpers.grid //
+//////////////////
+
+// Row is the block unit in grid system, 
+// use row to start a new block.
+// [1]: Give row negative margin-left use "grid-gutter-width",
+//  so first colum in the row will start from the 0px in X axis;
+// [2]: clearfix the row;
+@mixin bone-make-row {
+    margin-left: -$bone-grid-gutter-width; /* [1] */
+    @extend %clearfix; /* [2] */
+}
+
+
+
+
+// Column core styles
+// [1]: column should be a block
+// [2]: column without contents will have a min-height
+// [3]: use padding-left to space column
+// [4]: In order to let the grid system work, column's box-sizing should
+//  be set to "border-box"
+@mixin column-core {
+    display: block; /* [1] */
+    position: relative;
+    min-height: 1px; /* [2] */
+
+    padding-left: $bone-grid-gutter-width;  /* [3] */
+
+    box-sizing: border-box; /* [4] */
+}
+
+
+
+
+
+// Main helper to give column in grid system right styles.
+//
+// [1]:
+// Use for cycle to generate selectors list below:
+// $all-columns: non-responsive column selectors list.
+// $all-columns: responsive column selectors list.
+// $xs-columns: as the name suggest, xs-class column selectos list.
+// $sm-columns: as the name suggest, sm-class column selectos list.
+// $md-columns: as the name suggest, md-class column selectos list.
+// $lg-columns: as the name suggest, lg-class column selectos list.
+// 
+// [2]: give all columns core style, and non-repsonsive ones with "float: left" style.
+// [3]: calculate all non-responsive columns width.
+// [4]: responsive layout was achived using media queries, 
+//      when below the breakpoints width: column will collapse, have a "display: block" and 100% width style as fallback.
+@mixin make-column {
+    $i: 1;
+    $all-columns: ""; // [1]
+    $all-columns-r: ""; // [1]
+    $xs-columns: ""; // [1]
+    $sm-columns: ""; // [1]
+    $md-columns: ""; // [1]
+    $lg-columns: ""; // [1]
+    @for $i from (1) through $bone-grid-column-count { // [1]
+        @if $i == 1 {
+            $all-columns: ".#{$bone-namespace}col-#{$i}, %#{$bone-namespace}col-#{$i}";
+            $all-columns-r: ".#{$bone-namespace}col-#{$xs-class}-#{$i}, %#{$bone-namespace}col-#{$xs-class}-#{$i}, .#{$bone-namespace}col-#{$sm-class}-#{$i}, %#{$bone-namespace}col-#{$sm-class}-#{$i}, .#{$bone-namespace}col-#{$md-class}-#{$i}, %#{$bone-namespace}col-#{$md-class}-#{$i}, .#{$bone-namespace}col-#{$lg-class}-#{$i}, %#{$bone-namespace}col-#{$lg-class}-#{$i}";
+            $xs-columns: ".#{$bone-namespace}col-#{$xs-class}-#{$i}, %#{$bone-namespace}col-#{$xs-class}-#{$i}";
+            $sm-columns: ".#{$bone-namespace}col-#{$sm-class}-#{$i}, %#{$bone-namespace}col-#{$sm-class}-#{$i}";
+            $md-columns: ".#{$bone-namespace}col-#{$md-class}-#{$i}, %#{$bone-namespace}col-#{$md-class}-#{$i}";
+            $lg-columns: ".#{$bone-namespace}col-#{$lg-class}-#{$i}, %#{$bone-namespace}col-#{$lg-class}-#{$i}";
+        }   @else {
+            $all-columns: "#{$all-columns}, .#{$bone-namespace}col-#{$i}, %#{$bone-namespace}col-#{$i}";
+            $all-columns-r: "#{$all-columns-r}, .#{$bone-namespace}col-#{$xs-class}-#{$i}, %#{$bone-namespace}col-#{$xs-class}-#{$i}, .#{$bone-namespace}col-#{$sm-class}-#{$i}, %#{$bone-namespace}col-#{$sm-class}-#{$i}, .#{$bone-namespace}col-#{$md-class}-#{$i}, %#{$bone-namespace}col-#{$md-class}-#{$i}, .#{$bone-namespace}col-#{$lg-class}-#{$i}, %#{$bone-namespace}col-#{$lg-class}-#{$i}";
+            $xs-columns: "#{$xs-columns}, .#{$bone-namespace}col-#{$xs-class}-#{$i}, %#{$bone-namespace}col-#{$xs-class}-#{$i}";
+            $sm-columns: "#{$sm-columns}, .#{$bone-namespace}col-#{$sm-class}-#{$i}, %#{$bone-namespace}col-#{$sm-class}-#{$i}";
+            $md-columns: "#{$md-columns}, .#{$bone-namespace}col-#{$md-class}-#{$i}, %#{$bone-namespace}col-#{$md-class}-#{$i}";
+            $lg-columns: "#{$lg-columns}, .#{$bone-namespace}col-#{$lg-class}-#{$i}, %#{$bone-namespace}col-#{$lg-class}-#{$i}";
+        }
+    }
+
+    #{$all-columns} { // [2]
+        @include column-core();
+        float: left; // [2]
+    }
+
+    @include make-column-width(); // [3]
+
+    #{$all-columns-r} { // [2]
+        @include column-core();
+    }
+
+    @include make-column-width-r($xs-class); // [4]
+    #{$xs-columns} { float: left; }
+
+    @media (min-width: $bone-screen-width-sm) {
+        @include make-column-width-r($sm-class);
+        #{$sm-columns} { float: left; }
+    }
+
+    @media (min-width: $bone-screen-width-md) {
+        @include make-column-width-r($md-class);
+        #{$md-columns} { float: left; }
+    }
+
+    @media (min-width: $bone-screen-width-lg) {
+        @include make-column-width-r($lg-class);
+        #{$lg-columns} { float: left; }
+    }
+}
+
+
+
+
+
+// Calculate column width
+// [Non-responsive edition]
+@mixin make-column-width {
+    $i: 1;
+    @for $i from (1) through $bone-grid-column-count {
+        .#{$bone-namespace}col-#{$i},
+        %#{$bone-namespace}col-#{$i} {
+            width: percentage(($i / $bone-grid-column-count));
+        }
+    }
+}
+
+
+
+
+
+// Calculate column width
+// [Responsive edition]
+@mixin make-column-width-r($class-name) {
+    $i: 1;
+    @for $i from (1) through $bone-grid-column-count {
+        .#{$bone-namespace}col-#{$class-name}-#{$i},
+        %#{$bone-namespace}col-#{$class-name}-#{$i} {
+            width: percentage(($i / $bone-grid-column-count));
+        }
+    }
+}
+
+
+
+
+
+///////////////////////
+// Grid system style //
+///////////////////////
+
+
+
+
+
+// Generate row selector
+.#{$bone-namespace}row {
+    @include bone-make-row();
+}
+
+
+
+
+// Call make-column helper to actually generate all columns selectors
+@include make-column();

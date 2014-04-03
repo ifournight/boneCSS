@@ -1,0 +1,9 @@
+///////////////////////
+// helpers.font-size //
+///////////////////////
+///
+/// A helper to convert font-size from pxs to ems
+@mixin bone-font-size($bone-font-size) {
+    font-size: $bone-font-size;
+    font-size: ($bone-font-size / 16px) * 1em;
+}

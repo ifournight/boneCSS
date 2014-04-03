@@ -1,0 +1,39 @@
+////////////////////
+// #base.headings //
+////////////////////
+
+
+// Give h1~h6 some typography styles.
+// heading margins are given in "tools.shared.scss"
+h1, h2, h3, h4, h5, h6 {
+    font-family: $bone-headings-font-family;
+    font-weight: $bone-headings-font-weight;
+    line-height: $bone-headings-line-height;
+    color: $bone-headings-text-color;
+}
+
+// Use helper.font-size to convert each heading's font-size to ems
+h1 {
+    @include bone-font-size($bone-font-size-h1);
+}
+
+h2 {
+    @include bone-font-size($bone-font-size-h2);
+}
+
+h3 {
+    @include bone-font-size($bone-font-size-h3);
+}
+
+h4 {
+    @include bone-font-size($bone-font-size-h4);
+}
+
+h5 {
+    @include bone-font-size($bone-font-size-h5);
+}
+
+h6 {
+    @include bone-font-size($bone-font-size-h6);
+}
+

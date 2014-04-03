@@ -1,0 +1,103 @@
+//////////////////////
+// #objects.buttons //
+//////////////////////
+
+
+
+
+///////////////////////
+// Variables.buttons //
+///////////////////////
+$btn-padding-vertical-base: ceil($bone-spacing-unit-base / 2);
+$btn-padding-horizontal-base: $bone-spacing-unit-base;
+
+$btn-text-color-default: $bone-text-color-base;
+$btn-bg-color-default: $bone-bg-color-base;
+
+
+
+
+
+////////////////////
+// Styles.buttons //
+////////////////////
+
+// Button core styles.
+// [1]: allow box-model styling.
+// [2]: Give button a default padding.
+// [3]: Make sure button inherit all font styles.
+// [4]: align button vertically in the middle;
+// [5]: force all button styled elements to wrap contents.
+// [6]: force all button styled elements to be clickable
+// [7]: reset text-decoration, background-image, outline in all states.
+// [8]: reset/ normalize border.
+.#{$bone-namespace}btn,
+%#{$bone-namespace}btn {
+    display: inline-block; // [1]
+    margin: 0;
+    padding: $btn-padding-vertical-base $btn-padding-horizontal-base; // [2]
+
+    font: inherit; // [3]
+    text-align: center;
+    vertical-align: middle; // [4]
+    white-space: no-wrap; // [5]
+
+    border: none; // [8]
+
+    cursor: pointer; // [6]
+
+    background-color: $btn-bg-color-default;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+        text-decoration: none; // [7]
+        color: $btn-text-color-default;
+        outline: 0; // [7]
+        background-image: none; // [7]
+    }
+
+    // focus, active, disabled UI
+    // 
+    // boneCSS don't contains default state UI,
+    // because each projects may have completely different UI.
+}
+
+
+
+
+
+///////////////////
+// Button sizing //
+///////////////////
+// 
+// boneCSS won't do button sizing.
+
+
+
+
+
+//////////////////
+// Tools.button //
+//////////////////
+// Silent class to give a button full width in its container
+%#{$bone-namespace}btn--block {
+    display: block;
+    width: 100%;
+
+    padding: 0;
+}
+
+
+
+
+
+// Silent class to give a button a circle look
+// 
+// [1]: give a large enough border radius to make sure the circle look
+%#{$bone-namespace}btn--pill {
+    border-radius: 1000px; // [1]
+
+}

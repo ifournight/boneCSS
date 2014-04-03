@@ -1,0 +1,21 @@
+// #tools.shared
+
+// boneCSS use single direction margin theory, 
+// from: csswizardry.com/2012/06/single-direction-margin-declarations.
+// Elements that boneCSS considers should have a default margin will be given 
+// a default margin here.
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre,
+%margin-bottom {
+    margin-bottom: $bone-spacing-unit-base;
+    margin-bottom: ($bone-spacing-unit-base / 16px) *  1em;
+}
+
+%margin-left {
+    margin-left: $bone-spacing-unit-base;
+    margin-left: ($bone-spacing-unit-base / 16px) * 1em;
+}

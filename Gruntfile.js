@@ -8,57 +8,37 @@ module.exports = function(grunt) {
 
 
 
-  // Project configuration.
-  grunt.initConfig({
+    // Project configuration.
+    grunt.initConfig({
 
-    // sass config
-    sass: {
-      dist: {
-        options: {
-          style: "expanded"
+        // sass config
+        sass: {
+            dist: {
+                options: {
+                    style: "nested"
+                },
+                files: {
+                    "boneCSS/style.css": "boneCSS/style.scss"
+                }
+            }
         },
-        files: {
-          "css/grid.css": "_css/grid.scss",
-          "css/grid-r.css": "_css/grid-r.scss",
-          "css/btn.css": "_css/btn.scss",
-          "css/form.css": "_css/form.scss",
-          "css/menu.css": "_css/menu.scss",
 
-          "css/dropdown-menu.css": "_css/dropdown-menu.scss",
-          "css/carousel.css": "_css/carousel.scss",
-          "css/style.css": "_css/style.scss"
+
+
+
+
+
+        watch: {
+            sass: {
+                files: ["boneCSS/*.scss", "boneCSS/**/*.scss"],
+                tasks: ["css"],
+                options: {
+                    livereload: true
+                }
+            }
         }
-      }
-    },
 
-
-
-
-
-
-    watch: {
-      sass: {
-        files: "_css/*.scss",
-        tasks: ["css"],
-        options: {
-          livereload: true
-        }
-      },
-      js: {
-        files: "_js/*.js",
-        options: {
-          livereload: true
-        }
-      },
-      html: {
-        files: "*.html",
-        options: {
-          livereload: true
-        }
-      }
-    }
-
-  });
+    });
 
 
 
@@ -71,13 +51,13 @@ module.exports = function(grunt) {
 
 
 
-  grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks("grunt-contrib-sass");
+    grunt.loadNpmTasks("grunt-contrib-watch");
+        
     
-  
 
 
 
-  grunt.registerTask("css", ["sass"]);
+    grunt.registerTask("css", ["sass"]);
 
 };

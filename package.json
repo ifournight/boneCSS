@@ -1,5 +1,5 @@
 {
-  "name": "grid_demo",
+  "name": "boneCSS",
   "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.4",

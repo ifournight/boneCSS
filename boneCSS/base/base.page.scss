@@ -1,0 +1,24 @@
+////////////////
+// #base.page //
+////////////////
+// Default style that applied to entire page.
+
+html {
+    
+}
+
+/*
+
+    Page level styling.
+
+
+    Use variables from settings.default to give page a base font style.
+    1. "font-size" is calculated to use ems, "line-height" is calculated to use numbers
+ */
+body {
+    font-family: $bone-font-family-base;
+    font-size: ($bone-font-size-base / 16px) * 1em; /* [1] */
+    line-height: $bone-line-height-base / $bone-font-size-base; /* [1] */
+    color: $bone-text-color-base;
+    background-color: $bone-bg-color-base;
+}

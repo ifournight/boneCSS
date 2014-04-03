@@ -1,0 +1,69 @@
+///////////////
+// #DEFAULTS //
+///////////////
+// Defaults variables that entire framework depends on
+
+// boneCSS's class will be prefixed with this namespace.
+$bone-namespace: null !default;
+
+
+
+
+
+
+// Very "CORE" default values that rest of framework's values calculate from.
+$bone-font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$bone-font-size-base: 14px !default;
+$bone-line-height-base: 20px !default;
+$bone-text-color-base: #333 !default;
+$bone-bg-color-base: #fff !default;
+
+
+
+
+
+// Headings
+// 
+// h1~h6 default font-size variant source from "font-size-default",
+// when in use they will be converted to ems.
+$bone-font-size-h1:            floor(($bone-font-size-base * 2.6)) !default; // ~36px
+$bone-font-size-h2:            floor(($bone-font-size-base * 2.15)) !default; // ~30px
+$bone-font-size-h3:            ceil(($bone-font-size-base * 1.7)) !default; // ~24px
+$bone-font-size-h4:            ceil(($bone-font-size-base * 1.25)) !default; // ~18px
+$bone-font-size-h5:            $bone-font-size-base !default;
+$bone-font-size-h6:            ceil(($bone-font-size-base * 0.85)) !default; // ~12px
+// "font-family" and "color" inherit from body.
+// Give the default heading "font-weight" and fixed "line-height" here.
+$bone-headings-font-family:    inherit !default;
+$bone-headings-font-weight:    500 !default;
+$bone-headings-line-height:    1.1 !default;
+$bone-headings-text-color:     inherit !default;
+
+
+
+// Default spacing unit, derived from default line-height.
+$bone-spacing-unit-base: $bone-line-height-base !default;
+
+
+
+
+
+// Media queries breakpoints
+//
+// Width breakpoints that framework will use to build grid system and 
+// all other responsive related designs.
+// boneCSS setup 4 media query breakpoints,
+// xs: exteme small screen
+// sm: small screen
+// md: middle screen
+// lg: large screen
+// And boneCSS consider mobile first, usually the breakpoints setup will be something like below:
+// 
+// ...(some default styling applied to mobile device)
+// @media (min-width: @bone-screen-width-sm) { ...( 768px and up, eg. tablet, small laptop) }
+// @media (min-width: @bone-screen-width-md) { ...(1024px and up, eg. laptop) }
+// @media (min-width: @bone-screen-width-lg) { ...(1200px and up, eg. desktop) }
+$bone-screen-width-xs: 480px !default;
+$bone-screen-width-sm: 768px !default;
+$bone-screen-width-md: 1024px !default;
+$bone-screen-width-lg: 1200px !default;
